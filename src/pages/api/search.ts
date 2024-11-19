@@ -7,8 +7,7 @@ export async function GET({ params, request }: any) {
 	const query = url.searchParams.get("q");
 	console.log("Query: ", query);
 	const browser = await puppeteer.launch({
-		headless: false,
-		slowMo: 50,
+		headless: true,
 		args: ["--no-sandbox", "--disable-setuid-sandbox"],
 	});
 	const page = await browser.newPage();
@@ -17,13 +16,16 @@ export async function GET({ params, request }: any) {
 	);
 	await page.goto(`https://duckduckgo.com/?q=${query}`);
 	const htmlContent = await page.content();
-	// const results = await page.evaluate(() =>
-	// 	Array.from(document.querySelectorAll(".react-results--main")).map((el) => ({
-	// 		html: el.innerHTML,
-	// 	}))
-	// );
+	const results = await page.evaluate(() =>
+		Array.from(document.querySelectorAll(".react-results--main li[data-layout='organic']")).map((el) => ({
+			title: el.querySelector("article > *:nth-child(3) h2 span")?.innerHTML,
+			description: el.querySelector("article > *:nth-child(4) span > span")?.innerHTML,
+			url: el.querySelector("article > *:nth-child(2) > div > div > a > div > *:nth-child(1)")?.innerHTML,
+			image: el.querySelector("article > *:nth-child(2) > div > span > a > div > img")?.getAttribute('src')?.slice(2),
+		}))
+	);
 
 	// await browser.close();
 
-	return new Response(htmlContent, { status: 200 });
+	return new Response(JSON.stringify(results), { status: 200, });
 }
