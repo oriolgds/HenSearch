@@ -25,7 +25,7 @@ export async function GET({ params, request }: any) {
 		}))
 	);
 
-	// await browser.close();
+	await browser.close();
 
 	return new Response(JSON.stringify(results), { status: 200, });
 }
