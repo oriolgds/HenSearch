@@ -20,4 +20,25 @@ const { title, bodyClass } = Astro.props;
   <body class={bodyClass}>
     <slot />
   </body>
+
+  <style is:global>
+    :root {
+      --primary: #e05534;
+      --secondary: #c8401e;
+      --base: #091217;
+      --contrast: #fafafa;
+    }
+    .text-primary {
+      color: var(--primary);
+    }
+    .text-secondary {
+      color: var(--secondary);
+    }
+    .text-base {
+      color: var(--base);
+    }
+    .text-contrast {
+      color: var(--contrast);
+    }
+  </style>
 </html>
