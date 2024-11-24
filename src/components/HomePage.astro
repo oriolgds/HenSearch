@@ -1,0 +1,90 @@
+---
+
+---
+
+<header class="p-4">
+  <nav class="flex justify-end space-x-4">
+    <a href="#" class="text-sm text-gray-700 hover:underline">Gmail</a>
+    <a href="#" class="text-sm text-gray-700 hover:underline">Images</a>
+    <button class="p-2 text-sm text-gray-700 hover:bg-gray-100 rounded-full">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <span class="sr-only">Menu</span>
+    </button>
+    <button
+      class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600"
+      >Sign in</button
+    >
+  </nav>
+</header>
+
+<main class="flex-grow flex flex-col items-center justify-center px-4">
+  <h1 class="text-8xl font-bold mb-8 text-blue-500">Search</h1>
+  <div class="w-full max-w-2xl">
+    <form class="relative">
+      <input
+        type="text"
+        class="w-full py-3 px-4 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        placeholder="Search the web"
+      />
+      <button
+        type="submit"
+        class="absolute right-3 top-1/2 transform -translate-y-1/2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <span class="sr-only">Search</span>
+      </button>
+    </form>
+  </div>
+  <div class="mt-8 space-x-4">
+    <button
+      class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md text-sm hover:shadow-md"
+      >Search</button
+    >
+    <button
+      class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md text-sm hover:shadow-md"
+      >I'm Feeling Lucky</button
+    >
+  </div>
+</main>
+
+<footer class="p-4 bg-gray-100">
+  <div class="flex flex-col sm:flex-row justify-between items-center">
+    <div class="flex space-x-4 mb-4 sm:mb-0">
+      <a href="#" class="text-sm text-gray-600 hover:underline">About</a>
+      <a href="#" class="text-sm text-gray-600 hover:underline">Advertising</a>
+      <a href="#" class="text-sm text-gray-600 hover:underline">Business</a>
+      <a href="#" class="text-sm text-gray-600 hover:underline"
+        >How Search works</a
+      >
+    </div>
+    <div class="flex space-x-4">
+      <a href="#" class="text-sm text-gray-600 hover:underline">Privacy</a>
+      <a href="#" class="text-sm text-gray-600 hover:underline">Terms</a>
+      <a href="#" class="text-sm text-gray-600 hover:underline">Settings</a>
+    </div>
+  </div>
+</footer>
