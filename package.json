@@ -6,7 +6,7 @@
     "render-pre-deploy": "puppeteer browsers install chrome && astro preferences disable devToolbar",
     "render": "puppeteer browsers install chrome && astro dev --host",
     "deploy": "astro preferences disable devToolbar && astro dev --host",
-    "dev": "astro dev --host",
+    "dev": "astro dev",
     "start": "astro dev --host",
     "build": "astro check && astro build",
     "check": "astro check",
