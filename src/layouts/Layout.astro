@@ -11,14 +11,39 @@ const { title, bodyClass } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="Fed The Hens es un buscador privado, seguro y que alimenta a una gallina cada vez que haces una busqueda. Creado por Oriol Giner Díaz"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo/icon.png" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Oriol Giner Díaz (oriolgds)" />
     <title>{title}</title>
   </head>
   <body class={bodyClass}>
     <slot />
+    <footer class="p-4 bg-gray-100">
+      <div class="flex flex-col sm:flex-row justify-between items-center">
+        <div class="flex space-x-4 mb-4 sm:mb-0">
+          <a href="#" class="text-sm text-gray-600 hover:underline">Acerca de</a
+          >
+          <a href="#" class="text-sm text-gray-600 hover:underline"
+            >Funcionamiento</a
+          >
+          <a href="#" class="text-sm text-gray-600 hover:underline">Status</a>
+        </div>
+        <div class="flex space-x-4">
+          <a href="#" class="text-sm text-gray-600 hover:underline"
+            >Privacidad</a
+          >
+          <a href="#" class="text-sm text-gray-600 hover:underline">Terminos</a>
+          <a href="#" class="text-sm text-gray-600 hover:underline"
+            >Configuración</a
+          >
+        </div>
+      </div>
+    </footer>
   </body>
 
   <style is:global>

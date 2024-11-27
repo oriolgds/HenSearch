@@ -43,9 +43,10 @@
     Fed The Hens
   </h1>
   <div class="w-full max-w-2xl">
-    <form class="relative">
+    <form class="relative" id="search-form">
       <input
         type="text"
+        id="search-field"
         class="w-full py-3 px-4 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         placeholder="Buscar en la web"
       />
@@ -72,6 +73,7 @@
   </div>
   <div class="mt-8 space-x-4">
     <button
+      id="search-secondary-button"
       class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md text-sm hover:shadow-md"
       >Buscar</button
     >
@@ -82,20 +84,28 @@
   </div>
 </main>
 
-<footer class="p-4 bg-gray-100">
-  <div class="flex flex-col sm:flex-row justify-between items-center">
-    <div class="flex space-x-4 mb-4 sm:mb-0">
-      <a href="#" class="text-sm text-gray-600 hover:underline">Acerca de</a>
-      <a href="#" class="text-sm text-gray-600 hover:underline"
-        >Funcionamiento</a
-      >
-      <a href="#" class="text-sm text-gray-600 hover:underline">Status</a>
-    </div>
-    <div class="flex space-x-4">
-      <a href="#" class="text-sm text-gray-600 hover:underline">Privacidad</a>
-      <a href="#" class="text-sm text-gray-600 hover:underline">Terminos</a>
-      <a href="#" class="text-sm text-gray-600 hover:underline">Configuración</a
-      >
-    </div>
-  </div>
-</footer>
+<script>
+  const form = document.getElementById("search-form");
+  const input: HTMLInputElement | null = document.getElementById(
+    "search-field"
+  ) as HTMLInputElement;
+  const secondaryBtn = document.getElementById("search-secondary-button");
+
+  const search = () => {
+    const value = input.value;
+    console.log("value of the search ", value);
+    const targetPage = "/search";
+    const dynamicData = { q: value, categoria: "tecnologia" };
+    const params = new URLSearchParams(dynamicData);
+
+    window.location.href = `${targetPage}?${params.toString()}`;
+  };
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    search();
+  });
+  secondaryBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    search();
+  });
+</script>
