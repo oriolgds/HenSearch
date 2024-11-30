@@ -6,6 +6,10 @@ export const POST: APIRoute = async ({ request }) => {
 		// Parse the JSON body of the request
 		const body = await request.json();
 		const log = body.log;
+		const key = body.key;
+		if (key != "oriolgds") {
+			return new Response(JSON.stringify({ code: 1, message: 'Invalid API key' }), { status: 401 });
+		}
 
 		if (!log) {
 			return new Response(JSON.stringify({ code: 1, message: 'Missing "log" in request body' }), { status: 400 });
