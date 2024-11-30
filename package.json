@@ -19,11 +19,15 @@
     "@astrojs/tailwind": "^5.1.2",
     "@astrojs/vercel": "^7.8.2",
     "astro": "^4.16.14",
+    "formidable": "^3.5.2",
     "puppeteer": "^23.9.0",
     "puppeteer-core": "^23.9.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/formidable": "^3.4.5"
   }
 }
