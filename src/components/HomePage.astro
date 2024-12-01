@@ -95,7 +95,7 @@
     const value = input.value;
     console.log("value of the search ", value);
     const targetPage = "/search";
-    const dynamicData = { q: value, categoria: "tecnologia" };
+    const dynamicData = { q: value };
     const params = new URLSearchParams(dynamicData);
 
     window.location.href = `${targetPage}?${params.toString()}`;
