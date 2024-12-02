@@ -7,9 +7,9 @@ import Layout from "../layouts/Layout.astro";
   bodyClass="flex flex-col min-h-screen"
 >
   <header>
-    <nav class="flex m-2">
-      <div class="flex-none">
-        <a href="/">
+    <nav class="flex m-2 content-center">
+      <form>
+        <a href="/" class="flex-none">
           <img
             src="/public/logo/other_resolutions/logo_250px.png"
             width="68"
@@ -17,7 +17,12 @@ import Layout from "../layouts/Layout.astro";
             aria-label="Inicio"
           />
         </a>
-      </div>
+        <input
+          style="max-height: 43px;"
+          class="flex-1 py-3 my-auto ms-2 px-4 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-900 focus:border-transparent"
+        />
+        <button> </button>
+      </form>
     </nav>
   </header>
 </Layout>
