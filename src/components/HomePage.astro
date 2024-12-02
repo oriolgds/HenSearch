@@ -1,5 +1,5 @@
 ---
-
+import SearchForm from "./SearchForm.astro";
 ---
 
 <header class="p-4">
@@ -43,17 +43,14 @@
     Fed The Hens
   </h1>
   <div class="w-full max-w-2xl">
-    <form class="relative" id="search-form">
+    <SearchForm formClasses="relative">
       <input
         type="text"
         id="search-field"
         class="w-full py-3 px-4 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-900 focus:border-transparent"
         placeholder="Buscar en la web"
       />
-      <button
-        type="submit"
-        class="absolute right-3 top-1/2 transform -translate-y-1/2"
-      >
+      <button type="submit" style="height: 50px;" class="absolute right-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6 text-gray-400"
@@ -69,43 +66,17 @@
         </svg>
         <span class="sr-only">Search</span>
       </button>
-    </form>
-  </div>
-  <div class="mt-8 space-x-4">
-    <button
-      id="search-secondary-button"
-      class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md text-sm hover:shadow-md"
-      >Buscar</button
-    >
-    <button
-      class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md text-sm hover:shadow-md"
-      >Dar de comer</button
-    >
+      <div class="mt-8 space-x-4 text-center">
+        <button
+          id="search-secondary-button"
+          class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md text-sm hover:shadow-md"
+          >Buscar</button
+        >
+        <button
+          class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md text-sm hover:shadow-md"
+          >Dar de comer</button
+        >
+      </div>
+    </SearchForm>
   </div>
 </main>
-
-<script>
-  const form = document.getElementById("search-form");
-  const input: HTMLInputElement | null = document.getElementById(
-    "search-field"
-  ) as HTMLInputElement;
-  const secondaryBtn = document.getElementById("search-secondary-button");
-
-  const search = () => {
-    const value = input.value;
-    console.log("value of the search ", value);
-    const targetPage = "/search";
-    const dynamicData = { q: value };
-    const params = new URLSearchParams(dynamicData);
-
-    window.location.href = `${targetPage}?${params.toString()}`;
-  };
-  form?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    search();
-  });
-  secondaryBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    search();
-  });
-</script>

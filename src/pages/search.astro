@@ -1,4 +1,5 @@
 ---
+import SearchForm from "../components/SearchForm.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -8,7 +9,7 @@ import Layout from "../layouts/Layout.astro";
 >
   <header>
     <nav class="flex m-2 content-center">
-      <form>
+      <SearchForm formClasses="flex">
         <a href="/" class="flex-none">
           <img
             src="/public/logo/other_resolutions/logo_250px.png"
@@ -21,8 +22,7 @@ import Layout from "../layouts/Layout.astro";
           style="max-height: 43px;"
           class="flex-1 py-3 my-auto ms-2 px-4 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-900 focus:border-transparent"
         />
-        <button> </button>
-      </form>
+      </SearchForm>
     </nav>
   </header>
 </Layout>

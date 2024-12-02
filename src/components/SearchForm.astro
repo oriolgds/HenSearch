@@ -1,0 +1,35 @@
+---
+interface Props {
+  formClasses?: string;
+}
+const { formClasses } = Astro.props;
+---
+
+<form class={formClasses} id="search-form">
+  <slot />
+</form>
+<script>
+  const form = document.getElementById("search-form");
+  const input: HTMLInputElement | null = document.getElementById(
+    "search-field"
+  ) as HTMLInputElement;
+  const secondaryBtn = form?.querySelector("#search-secondary-button");
+
+  const search = () => {
+    const value = input.value;
+    console.log("value of the search ", value);
+    const targetPage = "/search";
+    const dynamicData = { q: value };
+    const params = new URLSearchParams(dynamicData);
+
+    window.location.href = `${targetPage}?${params.toString()}`;
+  };
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    search();
+  });
+  secondaryBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    search();
+  });
+</script>
