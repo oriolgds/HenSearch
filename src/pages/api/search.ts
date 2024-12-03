@@ -6,6 +6,9 @@ export async function GET({ params, request }: any) {
 	const url = new URL(request.url);
 	const query = url.searchParams.get("q");
 	console.log("Query: ", query);
+	return new Response(JSON.stringify(await scrapContent(query || "")), { status: 200 });
+}
+export async function scrapContent(query: string) {
 	const browser = await puppeteer.launch({
 		headless: true,
 		args: ["--no-sandbox", "--disable-setuid-sandbox"],
@@ -27,5 +30,5 @@ export async function GET({ params, request }: any) {
 
 	await browser.close();
 
-	return new Response(JSON.stringify(results), { status: 200, });
+	return results;
 }
