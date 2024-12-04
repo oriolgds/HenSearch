@@ -10,7 +10,7 @@ export async function GET({ params, request }: any) {
 }
 export async function scrapContent(query: string) {
 	const browser = await puppeteer.launch({
-		headless: true,
+		headless: false,
 		args: ["--no-sandbox", "--disable-setuid-sandbox"],
 	});
 	const page = await browser.newPage();
@@ -20,15 +20,19 @@ export async function scrapContent(query: string) {
 	await page.goto(`https://duckduckgo.com/?q=${query}`);
 	const htmlContent = await page.content();
 	const results = await page.evaluate(() =>
-		Array.from(document.querySelectorAll(".react-results--main li[data-layout='organic']")).map((el) => ({
-			title: el.querySelector("article > *:nth-child(3) h2 span")?.innerHTML,
-			description: el.querySelector("article > *:nth-child(4) span > span")?.innerHTML,
-			url: el.querySelector("article > *:nth-child(2) > div > div > a > div > *:nth-child(1)")?.innerHTML,
-			image: el.querySelector("article > *:nth-child(2) > div > span > a > div > img")?.getAttribute('src')?.slice(2),
-		}))
+		Array.from(document.querySelectorAll(".react-results--main li[data-layout='organic']")).map((el) => {
+			const image: HTMLImageElement | null = el.querySelector("article > *:nth-child(2) > div > span > a > div > img");
+
+			return {
+				title: el.querySelector("article > *:nth-child(3) h2 span")?.innerHTML,
+				description: el.querySelector("article > *:nth-child(4) span > span")?.innerHTML,
+				url: el.querySelector("article > *:nth-child(2) > div > div > a > div > *:nth-child(1)")?.innerHTML,
+				image: image?.src,
+			}
+		})
 	);
 
-	await browser.close();
+	// await browser.close();
 
 	return results;
 }
