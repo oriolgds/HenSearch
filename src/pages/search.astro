@@ -79,13 +79,13 @@ const searchData: any = await scrapContent(query || "");
       </SearchForm>
     </nav>
   </header>
-  <main>
+  <main class="container xs:px-2 sm:px-8 md:px-12 lg:px-20">
     {
       searchData.map((page: Page) => (
-        <div>
-          <div class="flex items-center gap-3 mb-3">
+        <div class="mb-5">
+          <div class="flex items-center gap-3 mb-0">
             <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-              <img src={`https://${page.image}`} />
+              <img src={`https://${page.image}`} width="22" />
             </div>
             <div>
               <h1 class="font-medium m-0" set:html={page.title} />
@@ -93,13 +93,13 @@ const searchData: any = await scrapContent(query || "");
             </div>
           </div>
           <div>
-            <h2 class="text-blue-400 text-2xl mt-5 mb-3">{page.title}</h2>
-            <div class="flex items-center gap-3 text-gray-400 text-sm">
+            <h2 class="text-blue-400 text-2xl mt-1 mb-2">{page.title}</h2>
+            <div class="flex items-center gap-1 text-gray-400 text-sm">
               <time datetime="2019-04-03">3 abr 2019</time>
               <span>—</span>
               <span>Heidi</span>
             </div>
-            <p class="mt-3 leading-relaxed" set:html={page.description}></p>
+            <p class="mt-1 leading-relaxed" set:html={page.description} />
           </div>
         </div>
       ))
