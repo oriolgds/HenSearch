@@ -10,7 +10,7 @@ export async function GET({ params, request }: any) {
 }
 export async function scrapContent(query: string) {
 	const browser = await puppeteer.launch({
-		headless: false,
+		headless: true,
 		args: ["--no-sandbox", "--disable-setuid-sandbox"],
 	});
 	const page = await browser.newPage();
