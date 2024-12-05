@@ -32,7 +32,7 @@ export async function scrapContent(query: string) {
 		})
 	);
 
-	// await browser.close();
+	await browser.close();
 
 	return results;
 }
