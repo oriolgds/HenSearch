@@ -4,6 +4,7 @@ declare global {
 		description: string
 		url: string
 		image: string
+		link: string
 	}
 }
 

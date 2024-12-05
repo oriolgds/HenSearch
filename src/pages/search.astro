@@ -87,10 +87,10 @@ const searchData: any = await scrapContent(query || "");
             <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
               <img src={page.image} width="22" />
             </div>
-            <div>
+            <a href={page.link}>
               <h1 class="font-medium m-0" set:html={page.title} />
               <p class="text-gray-400 text-sm m-0" set:html={page.url} />
-            </div>
+            </a>
           </div>
           <div>
             <h2 class="text-blue-400 text-2xl mt-1 mb-2">{page.title}</h2>

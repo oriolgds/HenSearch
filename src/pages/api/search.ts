@@ -27,6 +27,7 @@ export async function scrapContent(query: string) {
 				title: el.querySelector("article > *:nth-child(3) h2 span")?.innerHTML,
 				description: el.querySelector("article > *:nth-child(4) span > span")?.innerHTML,
 				url: el.querySelector("article > *:nth-child(2) > div > div > a > div > *:nth-child(1)")?.innerHTML,
+				link: el.querySelector("article > *:nth-child(3) h2 > a")?.getAttribute("href"),
 				image: image?.src,
 			}
 		})
