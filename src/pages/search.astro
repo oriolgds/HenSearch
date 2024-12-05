@@ -87,18 +87,23 @@ const searchData: any = await scrapContent(query || "");
             <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
               <img src={page.image} width="22" />
             </div>
-            <a href={page.link}>
+            <div>
               <h1 class="font-medium m-0" set:html={page.title} />
               <p class="text-gray-400 text-sm m-0" set:html={page.url} />
-            </a>
+            </div>
           </div>
           <div>
-            <h2 class="text-blue-400 text-2xl mt-1 mb-2">{page.title}</h2>
-            <div class="flex items-center gap-1 text-gray-400 text-sm">
+            <a
+              href={page.link}
+              class="hover:underline transition decoration-blue-400"
+            >
+              <h2 class="text-blue-400 text-2xl mt-1 mb-2">{page.title}</h2>
+            </a>
+            {/* <div class="flex items-center gap-1 text-gray-400 text-sm">
               <time datetime="2019-04-03">3 abr 2019</time>
               <span>—</span>
               <span>Heidi</span>
-            </div>
+            </div> */}
             <p class="mt-1 leading-relaxed" set:html={page.description} />
           </div>
         </div>
