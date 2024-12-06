@@ -17,7 +17,7 @@ export async function scrapContent(query: string) {
 	await page.setUserAgent(
 		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 	);
-	await page.goto(`https://duckduckgo.com/?q=${query}`);
+	await page.goto(`https://duckduckgo.com/?q=${query}`, { waitUntil: 'domcontentloaded' });
 	const htmlContent = await page.content();
 	const results = await page.evaluate(() =>
 		Array.from(document.querySelectorAll(".react-results--main li[data-layout='organic']")).map((el) => {
