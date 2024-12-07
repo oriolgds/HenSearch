@@ -2,7 +2,7 @@ import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 
 puppeteer.use(StealthPlugin());
-export async function GET({ params, request }: any) {
+export async function GET({ request }: any) {
 	const url = new URL(request.url);
 	const query = url.searchParams.get("q");
 	console.log("Query: ", query);
@@ -18,7 +18,6 @@ export async function scrapContent(query: string) {
 		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 	);
 	await page.goto(`https://duckduckgo.com/?q=${query}`, { waitUntil: 'domcontentloaded' });
-	const htmlContent = await page.content();
 	const results = await page.evaluate(() =>
 		Array.from(document.querySelectorAll(".react-results--main li[data-layout='organic']")).map((el) => {
 			const image: HTMLImageElement | null = el.querySelector("article > *:nth-child(2) > div > span > a > div > img");
